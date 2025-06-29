@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'Digital7';
+  src: url('./fonts/digital-7.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 25%, #e8eaf6 50%, #f3e5f5 75%, #fce4ec 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    gap: 48px;
+}
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    width: 400px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.display {
+  background-color: #1a1f1e;  
+  color: #39ff14;            
+  font-family: 'Digital7', monospace;
+  font-size: 2rem;
+  text-align: right;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  height: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  letter-spacing: 2px;
+}
+
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+  width: 100%;
+  height: 400px;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  border: none;
+  background: #3a3a3a;
+  color: #e0e0e0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background: #4a4a4a;
+  color: #ffffff;
+}
