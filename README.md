@@ -14,7 +14,7 @@ A sleek, modern calculator built with HTML, CSS, and JavaScript featuring a clea
 
 ## 🚀 Demo
 
-Try the live calculator: [Demo Link](#) *(Add your deployed link here)*
+Try the live calculator: [Demo Link](https://slash-init.github.io/calculator/)
 
 ## 🛠️ Technologies Used
 
