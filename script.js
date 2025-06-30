@@ -132,7 +132,8 @@ function inputPercentage() {
 // Handle button clicks
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        const buttonText = button.textContent;
+        const buttonText = button.textContent.trim();
+        console.log('Button clicked:', buttonText); // Debug log
 
         // Handle different button types
         switch (buttonText) {
@@ -160,6 +161,7 @@ buttons.forEach(button => {
                 inputOperator(buttonText);
                 break;
             case '√':
+            case 'sqrt':
                 // Calculate square root
                 const value = parseFloat(currentInput);
                 if (value >= 0) {
@@ -167,6 +169,7 @@ buttons.forEach(button => {
                 } else {
                     currentInput = 'Error';
                 }
+                waitingForOperand = true;
                 updateDisplay();
                 break;
             default:
@@ -203,6 +206,16 @@ document.addEventListener('keydown', (event) => {
         clear();
     } else if (key === 'Backspace') {
         clearEntry(); // Link Backspace to "C" button functionality
+    } else if (key === 'r' || key === 'R') {
+        // Square root with 'r' key
+        const value = parseFloat(currentInput);
+        if (value >= 0) {
+            currentInput = String(Math.sqrt(value));
+        } else {
+            currentInput = 'Error';
+        }
+        waitingForOperand = true;
+        updateDisplay();
     }
 });
 
