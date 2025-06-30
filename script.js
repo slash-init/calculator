@@ -29,8 +29,11 @@ function clear() {
 
 // Clear current entry
 function clearEntry() {
-    currentInput = '0';
-    waitingForOperand = false;
+    if (currentInput.length > 1) {
+        currentInput = currentInput.slice(0, -1);
+    } else {
+        currentInput = '0';
+    }
     updateDisplay();
 }
 
@@ -156,8 +159,15 @@ buttons.forEach(button => {
             case '/':
                 inputOperator(buttonText);
                 break;
-            case '( )':
-                // Parentheses functionality can be added later
+            case '√':
+                // Calculate square root
+                const value = parseFloat(currentInput);
+                if (value >= 0) {
+                    currentInput = String(Math.sqrt(value));
+                } else {
+                    currentInput = 'Error';
+                }
+                updateDisplay();
                 break;
             default:
                 // Handle digits
@@ -192,12 +202,7 @@ document.addEventListener('keydown', (event) => {
     } else if (key === 'Escape') {
         clear();
     } else if (key === 'Backspace') {
-        if (currentInput.length > 1) {
-            currentInput = currentInput.slice(0, -1);
-        } else {
-            currentInput = '0';
-        }
-        updateDisplay();
+        clearEntry(); // Link Backspace to "C" button functionality
     }
 });
 
